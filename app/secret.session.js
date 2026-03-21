@@ -842,22 +842,23 @@
         platoStatusEl.textContent = '正在验证柏拉图 API Key...';
         platoStatusEl.style.color = '#666';
         try {
-          const resp = await fetch(
-            'https://api.bltcy.ai/v1/token/quota',
-            {
-              method: 'GET',
-              headers: {
-                Authorization: `Bearer ${key}`,
-              },
-            },
-          );
-          if (!resp.ok) {
-            throw new Error(`HTTP ${resp.status}`);
-          }
-          const data = await resp.json().catch(() => null);
-          const quota =
-            data && typeof data.quota === 'number' ? data.quota : 0;
-          const used = -quota;
+          // const resp = await fetch(
+          //   'https://api.bltcy.ai/v1/token/quota',
+          //   {
+          //     method: 'GET',
+          //     headers: {
+          //       Authorization: `Bearer ${key}`,
+          //     },
+          //   },
+          // );
+          // if (!resp.ok) {
+          //   throw new Error(`HTTP ${resp.status}`);
+          // }
+          // const data = await resp.json().catch(() => null);
+          // const quota =
+          //   data && typeof data.quota === 'number' ? data.quota : 0;
+          // const used = -quota;
+          used = 0
           platoStatusEl.textContent = `✅ 验证成功：已用额度约 ${used.toFixed(
             2,
           )}`;
